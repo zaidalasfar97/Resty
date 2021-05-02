@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
+[Pull link](https://github.com//zaidalasfar97/resty/pull/1)
+[Deployed Link](https://resty-react-zz.netlify.app/)
 ![UML](./img/uml.png)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
