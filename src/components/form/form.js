@@ -1,5 +1,5 @@
 import React from 'react';
-import  './form.scss';
+import './form.scss';
 
 
 class Form extends React.Component {
@@ -40,11 +40,13 @@ class Form extends React.Component {
                         <label>Delete</label>
                         <input id='delete' name='method' type='radio' value='delete' ></input>
                     </form>
+                </div>
+                <section className='divtwo'>
 
                     <p id='method'>{this.state.method}</p>
                     <p id='url'>{this.state.url}</p>
 
-                </div>
+                </section>
             </main>
         )
     }
