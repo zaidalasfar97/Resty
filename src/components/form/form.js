@@ -1,5 +1,6 @@
 import React from 'react';
 import './form.scss';
+const superagent = require('superagent');
 
 
 class Form extends React.Component {
@@ -20,12 +21,35 @@ class Form extends React.Component {
         });
     };
 
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(e.target.url.value);
+        console.log(e.target.method.value);
+        this.setState({
+            url: e.target.url.value,
+            method: e.target.method.value,
+        });
+        try {
+            console.log(this.state);
+            const result = await superagent[e.target.method.value](
+                e.target.url.value
+            );
+            console.log(result);
+            let { headers, body } = result;
+            this.props.handler(headers, body, this.state);
+
+        } catch (error) {
+            this.props.handler(null, error.message, this.state);
+            console.error(error.message)
+        }
+    }
+
     render() {
 
         return (
             <main>
                 <div>
-                    <form onSubmit={this.clickHandler}>
+                    <form onSubmit={this.handleSubmit}>
                         <label>URL</label>
                         <input id='url' name='url' type='url' required placeholder='http://api.url.here'></input>
                         <button type='submit'>GO!</button>
