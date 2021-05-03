@@ -1,5 +1,6 @@
 main {
 
+
     text-align: center;
     div {
   
@@ -11,7 +12,7 @@ main {
         input[type='url'] {
           width: 60%;
           line-height: 30px;
-          margin-right: 20px;
+          margin-right: 200px;
           margin-bottom: 20px;
           margin-top: 20px;
         }
@@ -27,13 +28,9 @@ main {
           margin-bottom: 20px;
           font-size: 20px;
         }
+
         
       }
-      p{
-        font-size: 25px; 
-        color: rgb(79, 106, 228);
-        margin-top: 20px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     }
-    }
+     
+  }
 }
