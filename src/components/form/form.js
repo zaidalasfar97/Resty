@@ -8,52 +8,40 @@ class Form extends React.Component {
         super(props);
 
         this.state = {
-            method: '',
+            method: 'GET',
             url: '',
+            body: '',
         };
     }
 
-    clickHandler = (e) => {
-        e.preventDefault();
-        this.setState({
-            method: e.target.method.value,
-            url: e.target.url.value,
-        });
-    };
-
     handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(e.target.url.value);
-        console.log(e.target.method.value);
-        this.setState({
-            url: e.target.url.value,
+        await this.setState({
             method: e.target.method.value,
+            url: e.target.url.value,
+            body: e.target.body.value,
         });
-        try {
-            console.log(this.state);
-            const result = await superagent[e.target.method.value](
-                e.target.url.value
-            );
-            console.log(result);
-            let { headers, body } = result;
-            this.props.handler(headers, body, this.state);
+        this.props.handler(this.state);
+    };
 
-        } catch (error) {
-            this.props.handler(null, error.message, this.state);
-            console.error(error.message)
-        }
-    }
 
     render() {
 
         return (
             <main>
-                <div>
+                <div className="formClass">
                     <form onSubmit={this.handleSubmit}>
                         <label>URL</label>
                         <input id='url' name='url' type='url' required placeholder='http://api.url.here'></input>
                         <button type='submit'>GO!</button>
                         <br />
+                        <textarea
+                            type="text"
+                            name="body"
+                            placeholder="Request Body"
+                            rows="5"
+                            cols="50"
+                        />
 
                         <label>Get</label>
                         <input id='get' name='method' type='radio' value='get'></input>
@@ -65,12 +53,7 @@ class Form extends React.Component {
                         <input id='delete' name='method' type='radio' value='delete' ></input>
                     </form>
                 </div>
-                <section className='divtwo'>
 
-                    <p id='method'>{this.state.method}</p>
-                    <p id='url'>{this.state.url}</p>
-
-                </section>
             </main>
         )
     }
