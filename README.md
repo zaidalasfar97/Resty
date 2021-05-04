@@ -2,7 +2,7 @@
 
 [Pull link](https://github.com//zaidalasfar97/resty/pull/1)
 [Deployed Link](https://resty-react-zz.netlify.app/)
-![UML](./img/uml.png)
+![UML](./img/uml2.png)
 
 
 
