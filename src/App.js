@@ -30,7 +30,7 @@ class App extends React.Component {
 
   handleForm = async (state) => {
     this.setState({ fetching: true, trigger: true });
-    console.log(Date.now() / 1000);
+
     try {
       let reqBody = state.body;
       if (state.method === 'POST' || state.method === 'PUT') {
@@ -40,6 +40,7 @@ class App extends React.Component {
         let { headers, body } = result;
         this.handler(headers, body, state);
       } else {
+
         const result = await superagent[state.method.toLowerCase()](state.url);
         let { headers, body } = result;
         this.handler(headers, body, state);
@@ -98,7 +99,6 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.fetching !== this.state.fetching) {
-      console.log('fetching....', this.state.fetching);
       this.setState({ fetching: this.state.fetching });
     }
   }
@@ -106,17 +106,13 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <main>
-          <Form prompt="GO!" handler={this.handleForm} />
-          <section id="results">
-            <History props={this.state.storageArray} />
-            <If condition={this.state.trigger}>
-              <Then>
-                <Results props={this.state} />
-              </Then>
-            </If>
-          </section>
-        </main>
+        <Form prompt="GO!" handler={this.handleForm} />
+        <History props={this.state.storageArray} />
+        <If condition={this.state.trigger}>
+          <Then>
+            <Results props={this.state} />
+          </Then>
+        </If>
         <Footer />
       </>
     );
