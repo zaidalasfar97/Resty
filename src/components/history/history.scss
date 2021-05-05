@@ -1,44 +1,42 @@
-  
+.historyClass{
+  float: left;
+  margin-left: 100px;
+  margin-top: -200px;
+  border: 1px solid #222;
+  border-collapse: collapse;
+}
+
+
 table {
-    margin-left: 200px;
-    border-collapse: collapse;
-    width: 50%;
-    border: 2px solid rgb(17, 14, 14);
-    background-color: white;
-    th {
-      border-bottom: 4px solid rgb(19, 17, 17);
-    }
-    td,
-    th {
-      padding-left: 5px;
-    }
-    tr {
-      height: 10px;
-    }
-    .tableClass {
-      width: 25%;
-      border-right: 1px solid #222;
-    }
-      margin-left: 6rem;
+      margin-left: 500px;
       border-collapse: collapse;
-      width: 50%;
-      border: 2px solid rgb(19, 17, 17);
-      background-color: rgb(241, 222, 222);
+      border: 2px solid rgb(17, 14, 14);
+      background-color: white;
     
-      thead,th,td {
-        border-bottom: 3px solid black;
-      }
-      td {
-        cursor: pointer;
+      td,th {
         padding-left: 5px;
       }
-      tr {
-        height: 7px;
-      }
-      .tableClass {
-        text-align: center;
-        width: 25%;
-        border-right: 1px solid rgb(20, 19, 19);
-        // font-weight: 700;
-      }
-    }
+
+  
+        margin-left: 6rem;
+        border-collapse: collapse;
+        width: 30%;
+        border: 2px solid rgb(19, 17, 17);
+        background-color: rgb(241, 222, 222);
+      
+        thead,th,td {
+          border-bottom: 3px solid black;
+        }
+        td {
+          cursor: pointer;
+          padding-left: 5px;
+        }
+        tr {
+          height: 7px;
+        }
+        .tableClass {
+          text-align: center;
+          width: 25%;
+          border-right: 1px solid rgb(20, 19, 19);
+        }
+}

@@ -1,24 +1,35 @@
 import React from 'react';
 import './form.scss';
-const superagent = require('superagent');
-
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            method: 'GET',
             url: '',
+            method: '',
             body: '',
         };
     }
 
+    handleText = (e) => {
+        this.setState({
+            url: e.target.value,
+        });
+    }
+
+    handleButton = (e) => {
+        e.preventDefault();
+        this.setState({
+            method: e.target.value,
+        });
+    }
+
     handleSubmit = async (e) => {
+
         e.preventDefault();
         await this.setState({
-            method: e.target.method.value,
             url: e.target.url.value,
+            method: this.state.method,
             body: e.target.body.value,
         });
         this.props.handler(this.state);
@@ -26,37 +37,28 @@ class Form extends React.Component {
 
 
     render() {
-
         return (
             <main>
-                <div className="formClass">
-                    <form onSubmit={this.handleSubmit}>
-                        <label>URL</label>
-                        <input id='url' name='url' type='url' required placeholder='http://api.url.here'></input>
-                        <button type='submit'>GO!</button>
-                        <br />
-                        <textarea
-                            type="text"
-                            name="body"
-                            placeholder="Request Body"
-                            rows="5"
-                            cols="50"
-                        />
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <input type="text" placeholder="URL:" name="url" id="url" onClick={this.handleText} />
+                        <button type="submit" id="submit" >{this.props.prompt}</button>
+                    </div>
+                    <br />
+                    <textarea type="text" name="body" id="body" placeholder="Request body" rows="5" cols="35" />
 
-                        <label>Get</label>
-                        <input id='get' name='method' type='radio' value='get'></input>
-                        <label>Post</label>
-                        <input id='post' name='method' type='radio' value='post' ></input>
-                        <label>Put</label>
-                        <input id='put' name='method' type='radio' value='put' ></input>
-                        <label>Delete</label>
-                        <input id='delete' name='method' type='radio' value='delete' ></input>
-                    </form>
-                </div>
+                    <div className="but-dev">
+                        <button value="GET" id="GET" defaultChecked onClick={this.handleButton}>GET</button>
+                        <button value="POST" id="POST" onClick={this.handleButton}>POST</button>
+                        <button value="PUT" id="PUT" onClick={this.handleButton}>PUT</button>
+                        <button value="DELETE" id="DELETE" onClick={this.handleButton}>DELETE</button>
+                    </div>
+                </form>
 
             </main>
-        )
+        );
     }
+
 }
 
 export default Form;
