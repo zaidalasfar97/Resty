@@ -11,26 +11,26 @@ class Form extends React.Component {
         };
     }
 
-    handleText = (e) => {
+    handleText = (event) => {
         this.setState({
-            url: e.target.value,
+            url: event.target.value,
         });
     }
 
-    handleButton = (e) => {
-        e.preventDefault();
+    handleButton = (event) => {
+        event.preventDefault();
         this.setState({
-            method: e.target.value,
+            method: event.target.value,
         });
     }
 
-    handleSubmit = async (e) => {
+    handleSubmit = async (event) => {
 
-        e.preventDefault();
+        event.preventDefault();
         await this.setState({
-            url: e.target.url.value,
+            url: event.target.url.value,
             method: this.state.method,
-            body: e.target.body.value,
+            body: event.target.body.value,
         });
         this.props.handler(this.state);
     };

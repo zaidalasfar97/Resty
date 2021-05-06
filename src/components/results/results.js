@@ -4,14 +4,13 @@ import Loader from 'react-loader-spinner';
 
 import './result.scss';
 
-function Results({ props }) {
+function resultHandle({ props }) {
     return (
         <section className="resultClass">
             <If condition={props.fetching}>
                 <Then>
                     <div id="loader">
-                        <h3>Loading</h3>
-                        <Loader type="BallTriangle" color="#db7093" height={150} width={150} />
+                        <Loader type="Grid" color="#00BFFF" height={150} width={150} />
                     </div>
                 </Then>
                 <Else>
@@ -32,4 +31,4 @@ function Results({ props }) {
         </section>
     );
 }
-export default Results;
+export default resultHandle;

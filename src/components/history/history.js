@@ -7,7 +7,7 @@ function History({ props }) {
         <table className="historyClass">
             <thead>
                 <tr>
-                    <th className="th">Method</th>
+                    <th>Method</th>
                     <th>URL</th>
                 </tr>
             </thead>

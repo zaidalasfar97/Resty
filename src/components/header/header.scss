@@ -8,4 +8,18 @@ header {
         margin-top: 0%;
         font-size: 40px;
     }
+    .navClass{
+        margin:auto;
+
+        li{
+            display: inline-block;
+            margin-left: 120px;
+            margin-top: 30px;
+            
+        }
+        a {
+            color: #437ce6;
+            text-decoration: none;
+        }
+    }
 }
